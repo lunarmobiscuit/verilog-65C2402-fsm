@@ -6,7 +6,7 @@ The main design goal is to show the possibility of a backwards-compatible 65C02 
 address bus, with no modes, no new flags, just two new op-codes: CPU and A24
 
 $0F: CPU isn't necessary, but fills the A register with #$10, matching the prefix code
-$1F: A24 does nothing by iteself.  Like in the Z80, it's a prefix code that modifies the
+$1F: A24 does nothing by itself.  Like in the Z80, it's a prefix code that modifies the
 subsequent opcode.
 
 When prefixed all ABS / ABS,X / ABS,Y / IND, and IND,X opcodes take a three byte address in the
@@ -26,7 +26,7 @@ ABS and IND addressing are all two bytes.  Historic code using JSR/RTS will use 
 addresses.
 
 The only non-backward-compatible behaviors are the new interrupt vectors. A new RST handler
-could simply JMP ($FFFC), presuming a copy of the historic ROM was addressible at in page $FF.
+could simply JMP ($FFFC), presuming a copy of the historic ROM was addressable at in page $FF.
 A new IRQ handler similarly JMP ($FFFE).  The only issue would be legacy interrupt handlers
 that assumed the return address was the top two bytes on the stack, rather than three.
 
