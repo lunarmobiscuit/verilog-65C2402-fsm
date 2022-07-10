@@ -54,8 +54,23 @@ The CPU (0F) opcode would fill the A register with #$10, #$20, or #$30 depending
 widest address bus supported, logically or'd with #$40, #$80, or #$B0 to specify the widest
 data bus supported.  E.g., #50 = 16-bit data bus/registers and 24-bit address bus.
 
+## Building with and without the testbed
 
-# Based on Arlet Ottens's verilog-65C02-fsm (his notes follow)
+main.v, ram.v, ram.hex, and vec.hex are the testbed, using the SIM macro to enable simulations.
+E.g. iverilog -D SIM -o test *.v; vvp test
+
+ram.hex is 128K, loaded from $000000-$01ffff.  Accessing RAM above $020000 returns x's.
+vec.hex are the NMI, RST, and IRQ vectors, loaded at $FFFFF0-$FFFFFF (each is three bytes)
+
+Use macro ONEXIT to dump the contents of RAM 16-bytes prior to the RST vector and 16-bites starting
+at the RST vector before and after running the simulation.  16-bytes so that you can use those
+bytes as storage in your test to check the results.
+
+The opcode HLT (#$db) will end the simulation.
+
+
+# Based on Arlet Ottens's verilog-65C02-fsm
+## (Arlet's notes follow)
 A verilog model of the 65C02 CPU. The code is rewritten from scratch.
 
 * Assumes synchronous memory
