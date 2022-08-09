@@ -85,6 +85,7 @@ always @* begin
     endcase
 //if (ab_op[2:1] == 2'b00) $display("+00 AB:%0h base:%0h X:%0h C:%b ABW:%b", AB, base, XY, abl_ci, ABWDTH);
 //if (ab_op[2:1] == 2'b01) $display("+XY AB:%0h base:%0h X:%0h C:%b ABW:%b", AB, base, XY, abl_ci, ABWDTH);
+//if (ab_op[2:1] == 2'b11) $display("+ZP AB(L):%3h XY:%3h DI:%1h C:%b ABW:%b", AB, XY, DI, abl_ci, ABWDTH);
 //$display("ABL:%h", ABL);
 end
 
@@ -103,6 +104,7 @@ always @* begin
         2'b10: {abh_co, ABH} = base[15:8] + 8'h00 + abh_ci;   // ci = abl_ci
         2'b11: {abh_co, ABH} = base[15:8] + 8'hff + abh_ci;   // ci = abl_ci
     endcase
+//if (ab_op[2:1] == 2'b11) $display("+ZP AB(H):%3h C:%b ABW:%b", AB, abh_ci, ABWDTH);
 //$display("ABH:%h", ABH);
 end
 

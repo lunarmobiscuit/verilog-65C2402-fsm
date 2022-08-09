@@ -2061,6 +2061,8 @@
  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff // v$8100 - test zero-page 16-bit data opcodes
+ 18 A5 01 A6 02 B4 03 db db db db db db db db db // CLC; LDA $01; LDX $02; LDY $03,X; STP
  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
@@ -2079,10 +2081,8 @@
  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
- ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
- ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
- ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
- ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
+ ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff // v$8240 - debugging PSA PLY
+ A2 ff 9A A9 aa 48 1A 48 7A 7F db db db db db db // LDX #$FF; TXS; LDA #$AA; PSA; INA; PSA; PLY; PLX; STP
  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
  ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff
